@@ -1,5 +1,4 @@
 import { Actions, ActionType, Initial } from './index.types'
-import {totalmem} from "os";
 
 export const InitialState: Initial = {
   products: [
@@ -57,7 +56,7 @@ export const reducer = (
           }
         return obj
       })
-      
+
       const total = newData
         .map(item => item.total_price)
         .reduce((prev, curr) => prev + curr, 0);

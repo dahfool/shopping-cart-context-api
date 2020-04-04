@@ -1,11 +1,18 @@
-import React, { useContext } from 'react'
+import React, {useContext} from 'react'
 
 import Products from '../Products/Products'
-import { AppContext } from '../../context/appContext'
-import Total from "../Total/Total";
+import {AppContext} from '../../context/appContext'
+import Total from '../Total/Total'
+import { Actions } from '../../reducer/index.types'
 
 export default () => {
-  const { state: { products, total } } = useContext(AppContext)
+  const { state: { products, total }, dispatch } = useContext(AppContext)
+
+  const clearProducts = () => {
+    dispatch({
+      type: Actions.CLEAR_PRODUCTS
+    })
+  }
 
   return (
     <div>
@@ -14,7 +21,11 @@ export default () => {
         updateQuantity={() => {}}
         removeItem={() => {}}
       />
-      <Total totalAmount={total} clearProducts={() => {}} checkout={() => {}}/>
+      <Total
+        totalAmount={total}
+        clearProducts={clearProducts}
+        checkout={() => {}}
+      />
     </div>
   );
 };
