@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Props } from './Total.types'
+import { TotalContainer, ClearButton, TotalPrice, CheckoutButton } from './Total.styles'
 
 const Total: React.FC<Props> = ({
   totalAmount,
@@ -7,11 +9,11 @@ const Total: React.FC<Props> = ({
   clearProducts
 }) => {
   return (
-    <>
-      <div>{totalAmount.toFixed(2)}</div>
-      <button onClick={() => clearProducts()}>Clear</button>
-      <button onClick={() => checkout()}>Check Out</button>
-    </>
+    <TotalContainer>
+      <TotalPrice>{totalAmount.toFixed(2)}</TotalPrice>
+      <ClearButton onClick={() => clearProducts()}>Clear</ClearButton>
+      <CheckoutButton onClick={() => checkout()}>Check Out &#10095;</CheckoutButton>
+    </TotalContainer>
   )
 }
 

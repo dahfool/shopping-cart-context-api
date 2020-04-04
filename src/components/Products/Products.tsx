@@ -1,6 +1,8 @@
 import React from 'react'
+
 import { Props } from './Products.types'
 import Product from '../Product/Product'
+import { ProductList } from './Products.styles'
 
 const Products: React.FC<Props> = ({
   products,
@@ -8,7 +10,7 @@ const Products: React.FC<Props> = ({
   removeItem
 }) => {
   return (
-    <>
+    <ProductList>
       {products.map((item) =>
           <Product
             key={item.id}
@@ -17,7 +19,7 @@ const Products: React.FC<Props> = ({
             {...item}
           />
       )}
-    </>
+    </ProductList>
   )
 }
 

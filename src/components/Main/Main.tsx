@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 
+import { Main } from './Main.styles'
 import Products from '../Products/Products'
 import { AppContext } from '../../context/appContext'
 import Total from '../Total/Total'
@@ -30,7 +31,7 @@ export default () => {
   }
 
   return (
-    <div>
+    <Main>
       <Products
         products={products}
         updateQuantity={updateQuantity}
@@ -41,7 +42,7 @@ export default () => {
         clearProducts={clearProducts}
         checkout={() => {}}
       />
-    </div>
+    </Main>
   );
 };
 

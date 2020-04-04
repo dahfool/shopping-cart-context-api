@@ -1,5 +1,7 @@
 import React from 'react'
+
 import { Props } from './Product.types'
+import { ProductItem, ProductName, CloseButton, ProductTotal, ProductQuantity } from './Product.styles'
 
 const Product: React.FC<Props> = ({
   name,
@@ -10,9 +12,9 @@ const Product: React.FC<Props> = ({
   updateQuantity,
 }) => {
   return (
-    <li>
-      <div data-testid='name'>{name}</div>
-      <input
+    <ProductItem>
+      <ProductName data-testid='name'>{name}</ProductName>
+      <ProductQuantity
         type='number'
         min='0'
         aria-label='product-quantity'
@@ -22,9 +24,9 @@ const Product: React.FC<Props> = ({
           updateQuantity(id, parseInt(e.target.value))
         }}
       />
-      <div>{total_price.toFixed(2)}</div>
-      <button onClick={() => removeItem(id)}>close</button>
-    </li>
+      <ProductTotal>{total_price.toFixed(2)}</ProductTotal>
+      <CloseButton type='button' onClick={() => removeItem(id)}>&#x2715;</CloseButton>
+    </ProductItem>
   )
 }
 
