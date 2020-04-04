@@ -12,7 +12,16 @@ const Product: React.FC<Props> = ({
   return (
     <li>
       <div data-testid='name'>{name}</div>
-      <input aria-label='product-quantity' value={quantity} onChange={() => updateQuantity(id, quantity)}/>
+      <input
+        type='number'
+        min='0'
+        aria-label='product-quantity'
+        defaultValue={quantity}
+        onChange={(e) => {
+          e.preventDefault()
+          updateQuantity(id, parseInt(e.target.value))
+        }}
+      />
       <div>{total_price}</div>
       <button onClick={() => removeItem(id)}>close</button>
     </li>
