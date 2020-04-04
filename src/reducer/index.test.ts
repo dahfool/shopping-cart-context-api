@@ -60,6 +60,4 @@ describe('Reducer', () => {
       total: 36.1
     })
   })
-
-
 })
