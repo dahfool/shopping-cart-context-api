@@ -5,6 +5,7 @@ export interface Product {
   id: number,
   quantity: number,
   price: number,
+  total_price: number,
 }
 
 export interface Props extends ProductActions, Product {}
