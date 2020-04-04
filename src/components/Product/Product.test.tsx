@@ -14,6 +14,7 @@ const setup = () => {
     name='Ketchup'
     id={1}
     quantity={3}
+    total_price={15}
     price={5}
     {...actions}
   />)
@@ -40,7 +41,7 @@ describe('Product Component', () => {
 
   it ('Should have a price', () => {
     const { queryByText } = setup()
-    expect(queryByText('5')).toBeTruthy()
+    expect(queryByText('15')).toBeTruthy()
   })
 
   it ('Should fire updateQuanity', () => {

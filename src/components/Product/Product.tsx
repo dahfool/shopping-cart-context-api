@@ -5,7 +5,7 @@ const Product: React.FC<Props> = ({
   name,
   id,
   quantity,
-  price,
+  total_price,
   removeItem,
   updateQuantity,
 }) => {
@@ -13,7 +13,7 @@ const Product: React.FC<Props> = ({
     <li>
       <div data-testid='name'>{name}</div>
       <input aria-label='product-quantity' value={quantity} onChange={() => updateQuantity(id, quantity)}/>
-      <div>{price}</div>
+      <div>{total_price}</div>
       <button onClick={() => removeItem(id)}>close</button>
     </li>
   )
