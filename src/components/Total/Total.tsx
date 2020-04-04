@@ -8,7 +8,7 @@ const Total: React.FC<Props> = ({
 }) => {
   return (
     <>
-      <div>{totalAmount}</div>
+      <div>{totalAmount.toFixed(2)}</div>
       <button onClick={() => clearProducts()}>Clear</button>
       <button onClick={() => checkout()}>Check Out</button>
     </>

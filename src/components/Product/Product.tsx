@@ -22,7 +22,7 @@ const Product: React.FC<Props> = ({
           updateQuantity(id, parseInt(e.target.value))
         }}
       />
-      <div>{total_price}</div>
+      <div>{total_price.toFixed(2)}</div>
       <button onClick={() => removeItem(id)}>close</button>
     </li>
   )
