@@ -1,7 +1,8 @@
 import { Actions, ActionType, Initial } from './index.types'
 
 export const InitialState: Initial = {
-  products: [
+  products: [],
+  basket: [
     {
       id: 1,
       name: 'Mountain Dew',
@@ -24,7 +25,7 @@ export const InitialState: Initial = {
       total_price: 13.40
     }
   ],
-  total: 32.50
+  total: 0
 }
 
 export const reducer = (
@@ -32,6 +33,17 @@ export const reducer = (
   action: ActionType
 ) => {
   switch (action.type) {
+    case Actions.INITIALISE_BASKET:
+
+      const basketTotal = state.basket
+        .map(item => item.total_price)
+        .reduce((prev, curr) => prev + curr, 0);
+
+      return {
+        ...state,
+        products: state.basket,
+        total: basketTotal
+      }
     case Actions.CLEAR_PRODUCTS:
       return {
         ...state,

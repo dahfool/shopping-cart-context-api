@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { Main } from './Main.styles'
 import Products from '../Products/Products'
@@ -8,6 +8,12 @@ import { Actions } from '../../reducer/index.types'
 
 export default () => {
   const { state: { products, total }, dispatch } = useContext(AppContext)
+
+  useEffect(() => {
+    dispatch({
+      type: Actions.INITIALISE_BASKET
+    })
+  }, []);
 
   const clearProducts = () => {
     dispatch({
