@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from 'react'
 
-import { InitialState, reducer } from '../../reducer'
-import { Initial, ActionType } from '../../reducer/index.types'
+import { InitialState, reducer } from '../reducer'
+import { Initial, ActionType } from '../reducer/index.types'
 
 export const AppContext = createContext<{
   state: Initial;
