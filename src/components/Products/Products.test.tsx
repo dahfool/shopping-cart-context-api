@@ -8,13 +8,15 @@ const fixtures = [
     id: 1,
     name: 'Ketchup',
     quantity: 5,
-    price: 10
+    price: 10,
+    total_price: 10
   },
   {
     id: 2,
     name: 'Bake Beans',
     quantity: 7,
-    price: 80
+    price: 80,
+    total_price: 80
   }
 ]
 

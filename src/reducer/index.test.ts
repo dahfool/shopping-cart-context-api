@@ -5,13 +5,19 @@ describe('Reducer', () => {
 
   it('Should clear products', () => {
     expect(reducer(InitialState, { type: Actions.CLEAR_PRODUCTS})).toEqual({
+      ...InitialState,
       products: [],
       total: 0
     })
   })
 
   it('Should remove products', () => {
-    expect(reducer(InitialState, { type: Actions.REMOVE_PRODUCT, id: 1})).toEqual({
+    expect(reducer({
+      ...InitialState,
+      products: InitialState.basket,
+      total: 32.50
+    }, { type: Actions.REMOVE_PRODUCT, id: 1})).toEqual({
+      ...InitialState,
       products: [
         {
           id: 2,
@@ -33,7 +39,12 @@ describe('Reducer', () => {
   })
 
   it('Should update quantity', () => {
-    expect(reducer(InitialState, { type: Actions.UPDATE_QUANTITY, id: 1, quantity: 4})).toEqual({
+    expect(reducer({
+      ...InitialState,
+      products: InitialState.basket,
+      total: 32.50
+    }, { type: Actions.UPDATE_QUANTITY, id: 1, quantity: 4})).toEqual({
+      ...InitialState,
       products: [
         {
           id: 1,

@@ -1,3 +1,18 @@
+### Install
+``` 
+npm install
+```
+
+### Start
+``` 
+npm start
+```
+
+### Test
+``` 
+npm test
+```
+
 # MMT Digital Front-end Test
 
 Welcome to the MMT Digital Front-end test. This test will hopefully give you a chance to showcase your skills as a developer. You have **24 hours** to complete the test. After the test, we will ask you to talk through your code and decisions. Alright, let's do this!

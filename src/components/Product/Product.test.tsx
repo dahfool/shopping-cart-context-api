@@ -39,20 +39,20 @@ describe('Product Component', () => {
     expect(input.value).toBe('3')
   })
 
-  it ('Should have a price', () => {
+  it ('Should have a total price', () => {
     const { queryByText } = setup()
-    expect(queryByText('15')).toBeTruthy()
+    expect(queryByText('15.00')).toBeTruthy()
   })
 
   it ('Should fire updateQuanity', () => {
     const { input, actions } = setup()
     fireEvent.change(input, { target: { value: '23' } })
-    expect(actions.updateQuantity).toBeCalledWith(1, 3)
+    expect(actions.updateQuantity).toBeCalledWith(1, 23)
   })
 
   it ('Should fire removeItem', () => {
     const { getByText, actions } = setup()
-    getByText(/close/i).click()
+    getByText(/✕/i).click()
     expect(actions.removeItem).toBeCalledWith(1)
   })
 
