@@ -1,4 +1,5 @@
-import { Actions, ActionType, Initial } from './index.types'
+import { Initial } from './index.types'
+import { Actions, ProductActionTypes } from '../actions/actions.types'
 
 export const InitialState: Initial = {
   products: [],
@@ -30,7 +31,7 @@ export const InitialState: Initial = {
 
 export const reducer = (
   state: Initial,
-  action: ActionType
+  action: ProductActionTypes
 ) => {
   switch (action.type) {
     case Actions.INITIALISE_BASKET:

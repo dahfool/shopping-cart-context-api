@@ -1,10 +1,14 @@
 import { InitialState, reducer } from './'
-import { Actions } from './index.types'
+import {
+  clearProducts,
+  updateQuantity,
+  removeProducts
+} from '../actions/actions'
 
 describe('Reducer', () => {
 
   it('Should clear products', () => {
-    expect(reducer(InitialState, { type: Actions.CLEAR_PRODUCTS})).toEqual({
+    expect(reducer(InitialState, clearProducts())).toEqual({
       ...InitialState,
       products: [],
       total: 0
@@ -16,7 +20,7 @@ describe('Reducer', () => {
       ...InitialState,
       products: InitialState.basket,
       total: 32.50
-    }, { type: Actions.REMOVE_PRODUCT, id: 1})).toEqual({
+    }, removeProducts(1))).toEqual({
       ...InitialState,
       products: [
         {
@@ -43,7 +47,7 @@ describe('Reducer', () => {
       ...InitialState,
       products: InitialState.basket,
       total: 32.50
-    }, { type: Actions.UPDATE_QUANTITY, id: 1, quantity: 4})).toEqual({
+    }, updateQuantity(1, 4))).toEqual({
       ...InitialState,
       products: [
         {

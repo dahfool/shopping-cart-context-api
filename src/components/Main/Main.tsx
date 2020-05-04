@@ -4,36 +4,30 @@ import { Main } from './Main.styles'
 import Products from '../Products/Products'
 import { AppContext } from '../../context/appContext'
 import Total from '../Total/Total'
-import { Actions } from '../../reducer/index.types'
+import {
+  loadBasket,
+  clearProducts as clear,
+  updateQuantity as update,
+  removeProducts
+} from '../../actions/actions'
 
 export default () => {
   const { state: { products, total }, dispatch } = useContext(AppContext)
 
   useEffect(() => {
-    dispatch({
-      type: Actions.INITIALISE_BASKET
-    })
+    dispatch(loadBasket())
   }, []);
 
   const clearProducts = () => {
-    dispatch({
-      type: Actions.CLEAR_PRODUCTS
-    })
+    dispatch(clear())
   }
 
   const updateQuantity = (id: number, quantity:number) => {
-    dispatch({
-      type: Actions.UPDATE_QUANTITY,
-      id,
-      quantity
-    })
+    dispatch(update(id, quantity))
   }
 
   const removeItem = (id: number) => {
-    dispatch({
-      type: Actions.REMOVE_PRODUCT,
-      id,
-    })
+    dispatch(removeProducts(id))
   }
 
   return (

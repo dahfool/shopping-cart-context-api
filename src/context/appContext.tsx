@@ -1,11 +1,12 @@
 import React, { createContext, useReducer } from 'react'
 
 import { InitialState, reducer } from '../reducer'
-import { Initial, ActionType } from '../reducer/index.types'
+import { Initial } from '../reducer/index.types'
+import { ProductActionTypes } from '../actions/actions.types'
 
 export const AppContext = createContext<{
   state: Initial;
-  dispatch: (action: ActionType) => void;
+  dispatch: (action: ProductActionTypes) => void;
 }>({
   state: InitialState,
   dispatch: () => {}

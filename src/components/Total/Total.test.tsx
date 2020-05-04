@@ -25,7 +25,8 @@ const setup = () => {
 describe('Total Component', () => {
   it ('Should render total amount', () => {
     const { queryByText } = setup()
-    expect(queryByText('344.00')).toBeTruthy()
+    // expect(queryByText('344.00')).toBeTruthy()
+    expect(queryByText('344.00')).toBeInTheDocument();
   })
 
   it ('Should fire updateQuanity', () => {
